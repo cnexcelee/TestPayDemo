@@ -3,5 +3,11 @@
 
     <string name="app_name">Test</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="btn_weibo_login">新浪微博登录</string>
+	<string name="tv_weibo_name">默认</string>
+	
+	
+	<string name="btn_txt_wechatpay">微信支付</string>
+	<string name="btn_txt_alipay">支付宝制服</string>
+	<string name="btn_txt_ocr">OCR识别</string>
 </resources>

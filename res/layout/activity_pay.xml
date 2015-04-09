@@ -1,0 +1,32 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:orientation="vertical">
+
+
+     <TextView 
+        android:id="@+id/tv_weiboname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_weibo_name"/>
+    
+    <Button 
+        android:id="@+id/btn_wechatpay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_txt_wechatpay"/>
+    
+    <Button 
+        android:id="@+id/btn_alipay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_txt_alipay"/>
+    
+     <Button 
+        android:id="@+id/btn_ocr"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_txt_ocr"/>
+</LinearLayout>
