@@ -71,12 +71,15 @@ public class MainActivity extends Activity {
 		@Override
 		public void onComplete(Bundle arg0) {
 			 // 从 Bundle 中解析 Token
-			Log.i(TAG, "onComplete");
+			
 	        mAccessToken = Oauth2AccessToken.parseAccessToken(arg0);
 	        String uid = mAccessToken.getUid();
+	        Log.i(TAG, "onComplete :" +uid);
 	        if (mAccessToken.isSessionValid()) {
-	        	UsersAPI user = new UsersAPI(MainActivity.this, Constants.APP_KEY, mAccessToken);
-	        	user.show(uid, new ReListener());
+//	        	UsersAPI user = new UsersAPI(MainActivity.this, Constants.APP_KEY, mAccessToken);
+//	        	user.show(uid, new ReListener());
+	        	Intent intent = new Intent(MainActivity.this, PayActivity.class);
+	        	startActivity(intent);
 	        }else{
 	        	// 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；
@@ -109,7 +112,7 @@ public class MainActivity extends Activity {
 
 		@Override
 		public void onWeiboException(WeiboException arg0) {
-			Log.i(TAG, arg0.toString());
+			Log.i(TAG,"onWeiboException -- :" + arg0.toString());
 		}
 		
 	}
