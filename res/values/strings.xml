@@ -8,6 +8,6 @@
 	
 	
 	<string name="btn_txt_wechatpay">微信支付</string>
-	<string name="btn_txt_alipay">支付宝制服</string>
+	<string name="btn_txt_alipay">支付宝支付</string>
 	<string name="btn_txt_ocr">OCR识别</string>
 </resources>

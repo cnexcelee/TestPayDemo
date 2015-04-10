@@ -8,6 +8,7 @@ import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.UsersAPI;
+import com.sina.weibo.sdk.openapi.models.User;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -74,12 +75,10 @@ public class MainActivity extends Activity {
 			
 	        mAccessToken = Oauth2AccessToken.parseAccessToken(arg0);
 	        String uid = mAccessToken.getUid();
-	        Log.i(TAG, "onComplete :" +uid);
+	        Log.i(TAG, "onComplete uid :" +uid);
 	        if (mAccessToken.isSessionValid()) {
-//	        	UsersAPI user = new UsersAPI(MainActivity.this, Constants.APP_KEY, mAccessToken);
-//	        	user.show(uid, new ReListener());
-	        	Intent intent = new Intent(MainActivity.this, PayActivity.class);
-	        	startActivity(intent);
+	        	UsersAPI user = new UsersAPI(MainActivity.this, Constants.APP_KEY, mAccessToken);
+	        	user.show(Long.parseLong(uid), new ReListener());
 	        }else{
 	        	// 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；
@@ -105,9 +104,13 @@ public class MainActivity extends Activity {
 
 		@Override
 		public void onComplete(String arg0) {
-			Log.i(TAG,"onComplete : "+arg0);
-//			Intent intent = new Intent(MainActivity.this, PayActivity.class);
-//        	startActivity(intent);
+			 Log.i(TAG,"onComplete : "+arg0);
+			 User user = User.parse(arg0);
+			 Log.i(TAG,"onComplete user : "+user.screen_name );
+			 Intent intent = new Intent(MainActivity.this, PayActivity.class);
+			 intent.putExtra("name", user.screen_name);
+        	 startActivity(intent);
+        	 finish();
 		}
 
 		@Override
